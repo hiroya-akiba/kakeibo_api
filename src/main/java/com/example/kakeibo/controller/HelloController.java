@@ -11,6 +11,7 @@ public class HelloController {
 
     @GetMapping("/hello")
     public String hello() {
+        String str = "a";
         return "こんにちは、家計簿アプリ！";
     }
 }
