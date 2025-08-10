@@ -49,7 +49,7 @@ public class UserController {
                             .build()
             );
         }
-        // userservice.registerUser(request);
+        // userService.registerUser(request);
 
         return ResponseEntity.status(HttpStatus.CREATED).body(
                 ApiResponse.<Void>builder()
@@ -67,7 +67,7 @@ public class UserController {
     @PostMapping("/login")
     public ResponseEntity<ApiResponse<LoginResponse>> login(@RequestBody LoginRequest request) {
         LoginResponse response = new LoginResponse(); //モック用
-        //= userService.login(request);
+        //UserService user= userService.login(request);
 
         return ResponseEntity.ok(
                 ApiResponse.<LoginResponse>builder()
@@ -85,7 +85,7 @@ public class UserController {
      */
     @GetMapping("/me")
     public ResponseEntity<ApiResponse<UserDto>> getMe(@AuthenticationPrincipal CustomUserDetailsRequest userDetails) {
-        UserDto dto = new UserDto();
+        UserDto dto = new UserDto(1L, 1L,"hiroya", "hiroya@gmail.com", "admin");
         //userService.getUserInfo(userDetails.getId());
 
         return ResponseEntity.ok(

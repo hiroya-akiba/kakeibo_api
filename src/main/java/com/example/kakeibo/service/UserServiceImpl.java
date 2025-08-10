@@ -18,6 +18,6 @@ public class UserServiceImpl implements UserService {
     public UserDto getUserInfo(Long userId){
         User user = userRepository.findById(userId)
                 .orElseThrow(() -> new UsernameNotFoundException("ユーザーが見つかりません"));
-        return new UserDto(user.getId(), user.getName(), user.getEmail());
+        return new UserDto(user.getId(), userId, user.getName(), user.getEmail(), "admin");
     }
 }
